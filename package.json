@@ -1,0 +1,9 @@
+{
+  "name": "mongolian-food-composition-spa",
+  "version": "1.0.0",
+  "scripts": {
+    "sass": "sass src/scss/main.scss src/css/main.css --watch",
+    "start": "npx http-server src -p 8080"
+  },
+  "devDependencies": { "bulma": "^1.0.2", "sass": "^1.77.0" }
+}

@@ -1,0 +1,50 @@
+@use "sass:color";
+
+// variables  (өөрчилсөн өнгө, фонт)
+$primaryColor: #1b7f79;          // teal  (анх #2bac73)
+$primaryColorDark: color.scale($primaryColor, $lightness: -15%);
+$secondaryColor: #e76f51;        // coral (анх #ff914d)
+$secondaryColorDark: color.scale($secondaryColor, $lightness: -15%);
+$family-sans-serif: "Nunito", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+@import "../../node_modules/bulma/bulma";
+
+// override bulma primary (hsl: 177deg 65% 30%)
+:root {
+  --bulma-primary-h: 177deg;
+  --bulma-primary-s: 65%;
+  --bulma-primary-l: 30%;
+}
+
+body { font-family: $family-sans-serif; background-color: #f4faf9; }
+.txt-h { color: $primaryColor; letter-spacing: 0.02em; }
+
+.button.is-primary {
+  background-color: $primaryColor; border-color: $primaryColor; color: white;
+  transition: all 0.2s ease;
+  &:hover { background-color: $primaryColorDark; border-color: $primaryColorDark; color: white; }
+}
+.button.is-secondary {
+  background-color: $secondaryColor; border-color: $secondaryColor; color: white;
+  transition: all 0.2s ease;
+  &:hover { background-color: $secondaryColorDark; border-color: $secondaryColorDark; color: white; }
+}
+
+// top navbar
+.navbar-brand a {
+  p { color: $primaryColor; font-size: 1rem; }
+  span { color: $secondaryColor; }
+}
+.navbar-end a { color: $secondaryColor; }
+
+.app-sticky { position: sticky; top: 0; z-index: 1000; background-color: #ffffff; }
+.app-shadow { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }
+.navbar-brand .image img { max-width: 56px; height: auto; }
+.navbar-item { display: flex; align-items: center; gap: 8px; }
+
+// Цэсийг баруун тал руу зэрэгцүүлэх
+.app-top-navbar-right { flex-grow: 1; justify-content: flex-end; }
+
+.navbar-brand .app-logo:hover,
+.navbar-brand .app-logo:focus,
+.navbar-brand .app-logo:active { background-color: transparent; color: inherit; box-shadow: none; }
